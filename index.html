@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grade 6 ICT - Team Quiz Challenge (50 Qs)</title>
+  <title>Grade 6 ICT - Team Quiz Challenge (50 Qs - Shuffled)</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     body { background-color: #0f172a; color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 20px; position: relative; }
@@ -190,70 +190,86 @@
   </div>
 
   <script>
-    // 50 SIMPLE QUESTIONS FROM GRADE 6 ICT SYLLABUS (UNITS 1 - 6)
-    const questions = [
+    // 50 SIMPLE QUESTIONS FROM GRADE 6 ICT SYLLABUS (SHUFFLED POSITIONS + AUTO-SHUFFLE ON LOAD)
+    const rawQuestions = [
       // --- UNIT 1: IMPORTANCE OF COMPUTERS (9 Qs) ---
-      { round: "Unit 1: Importance of Computers", q: "What are the three main tasks of a computer?", opts: ["Input, Process, Output", "Type, Print, Draw", "Play, Sleep, Eat", "Save, Copy, Paste"], ans: 0 },
-      { round: "Unit 1: Importance of Computers", q: "Which feature means a computer can do many tasks very fast?", opts: ["Speed and Efficiency", "Laziness", "Guessing", "Sleeping"], ans: 0 },
-      { round: "Unit 1: Importance of Computers", q: "Can a computer think and take decisions by itself like a human?", opts: ["Yes, always", "No, it follows given instructions", "Only on Sundays", "Only when playing games"], ans: 1 },
+      { round: "Unit 1: Importance of Computers", q: "What are the three main tasks of a computer?", opts: ["Type, Print, Draw", "Play, Sleep, Eat", "Input, Process, Output", "Save, Copy, Paste"], ans: 2 },
+      { round: "Unit 1: Importance of Computers", q: "Which feature means a computer can do many tasks very fast?", opts: ["Laziness", "Speed and Efficiency", "Guessing", "Sleeping"], ans: 1 },
+      { round: "Unit 1: Importance of Computers", q: "Can a computer think and take decisions by itself like a human?", opts: ["Yes, always", "Only on Sundays", "Only when playing games", "No, it follows given instructions"], ans: 3 },
       { round: "Unit 1: Importance of Computers", q: "Which of these has an embedded computer system?", opts: ["Washing machine", "Wooden chair", "Pencil", "Stone"], ans: 0 },
-      { round: "Unit 1: Importance of Computers", q: "Where is the Central Processing Unit (CPU) kept in a desktop computer?", opts: ["Inside the system unit", "On the keyboard", "Inside the mouse", "On the wall"], ans: 0 },
-      { round: "Unit 1: Importance of Computers", q: "Which device is used to enter data into a computer?", opts: ["Keyboard", "Monitor", "Printer", "Speaker"], ans: 0 },
-      { round: "Unit 1: Importance of Computers", q: "Which device shows output as pictures and text on a screen?", opts: ["Monitor", "Mouse", "Scanner", "Barcode reader"], ans: 0 },
-      { round: "Unit 1: Importance of Computers", q: "Which of these is a storage device?", opts: ["Pen drive", "Microphone", "Web camera", "Router"], ans: 0 },
-      { round: "Unit 1: Importance of Computers", q: "Who is a 'user' of a computer?", opts: ["The person who uses the computer", "A computer cable", "A game character", "A screen icon"], ans: 0 },
+      { round: "Unit 1: Importance of Computers", q: "Where is the Central Processing Unit (CPU) kept in a desktop computer?", opts: ["On the keyboard", "Inside the system unit", "Inside the mouse", "On the wall"], ans: 1 },
+      { round: "Unit 1: Importance of Computers", q: "Which device is used to enter data into a computer?", opts: ["Monitor", "Printer", "Keyboard", "Speaker"], ans: 2 },
+      { round: "Unit 1: Importance of Computers", q: "Which device shows output as pictures and text on a screen?", opts: ["Mouse", "Scanner", "Barcode reader", "Monitor"], ans: 3 },
+      { round: "Unit 1: Importance of Computers", q: "Which of these is a storage device?", opts: ["Microphone", "Pen drive", "Web camera", "Router"], ans: 1 },
+      { round: "Unit 1: Importance of Computers", q: "Who is a 'user' of a computer?", opts: ["A computer cable", "A game character", "The person who uses the computer", "A screen icon"], ans: 2 },
 
       // --- UNIT 2: USE THE COMPUTER LABORATORY SAFELY (9 Qs) ---
-      { round: "Unit 2: Computer Lab Safety", q: "What should you do with your shoes before entering the computer lab?", opts: ["Remove them outside", "Wear them on the desk", "Put them on the chair", "Leave them near the monitor"], ans: 0 },
+      { round: "Unit 2: Computer Lab Safety", q: "What should you do with your shoes before entering the computer lab?", opts: ["Wear them on the desk", "Put them on the chair", "Leave them near the monitor", "Remove them outside"], ans: 3 },
       { round: "Unit 2: Computer Lab Safety", q: "Why should we not bring food or water into the computer lab?", opts: ["They can spill and damage devices", "They make the mouse heavy", "They block the Wi-Fi", "They turn off the lights"], ans: 0 },
-      { round: "Unit 2: Computer Lab Safety", q: "What is the first step when turning on a desktop computer?", opts: ["Switch on the wall power socket", "Open a game", "Press the monitor button twice", "Unplug the mouse"], ans: 0 },
-      { round: "Unit 2: Computer Lab Safety", q: "What is the correct order to turn off a computer safely?", opts: ["Close programs, Shut down, turn off monitor, UPS, and wall switch", "Pull out the power plug directly", "Turn off the wall switch first", "Close the monitor only"], ans: 0 },
-      { round: "Unit 2: Computer Lab Safety", q: "What is a good distance between your eyes and the computer screen?", opts: ["18 to 28 inches", "2 to 4 inches", "10 meters", "Touching the glass"], ans: 0 },
-      { round: "Unit 2: Computer Lab Safety", q: "Sitting with a bent back for a long time can cause pain in your:", opts: ["Backbone", "Ears", "Nails", "Hair"], ans: 0 },
-      { round: "Unit 2: Computer Lab Safety", q: "What does 'Reuse' mean in the 3R method for e-waste?", opts: ["Using old working items again or giving them to others", "Burning old parts", "Throwing broken parts in rivers", "Breaking monitors"], ans: 0 },
+      { round: "Unit 2: Computer Lab Safety", q: "What is the first step when turning on a desktop computer?", opts: ["Open a game", "Switch on the wall power socket", "Press the monitor button twice", "Unplug the mouse"], ans: 1 },
+      { round: "Unit 2: Computer Lab Safety", q: "What is the correct order to turn off a computer safely?", opts: ["Pull out the power plug directly", "Turn off the wall switch first", "Close programs, Shut down, turn off monitor, UPS, and wall switch", "Close the monitor only"], ans: 2 },
+      { round: "Unit 2: Computer Lab Safety", q: "What is a good distance between your eyes and the computer screen?", opts: ["2 to 4 inches", "10 meters", "Touching the glass", "18 to 28 inches"], ans: 3 },
+      { round: "Unit 2: Computer Lab Safety", q: "Sitting with a bent back for a long time can cause pain in your:", opts: ["Ears", "Backbone", "Nails", "Hair"], ans: 1 },
+      { round: "Unit 2: Computer Lab Safety", q: "What does 'Reuse' mean in the 3R method for e-waste?", opts: ["Burning old parts", "Throwing broken parts in rivers", "Using old working items again or giving them to others", "Breaking monitors"], ans: 2 },
       { round: "Unit 2: Computer Lab Safety", q: "Which of these is a good password rule?", opts: ["Do not use your name or birthday", "Share your password with everyone", "Use '1234' for every account", "Write it on the monitor"], ans: 0 },
-      { round: "Unit 2: Computer Lab Safety", q: "What should you do before opening a pen drive in the lab?", opts: ["Scan it for viruses", "Drop it on the floor", "Wash it with water", "Hide it in your bag"], ans: 0 },
+      { round: "Unit 2: Computer Lab Safety", q: "What should you do before opening a pen drive in the lab?", opts: ["Drop it on the floor", "Wash it with water", "Hide it in your bag", "Scan it for viruses"], ans: 3 },
 
       // --- UNIT 3: OPERATING SYSTEM AND FILE MANAGEMENT (8 Qs) ---
-      { round: "Unit 3: Operating System & Files", q: "What is an Operating System?", opts: ["Software that helps manage the computer and connect user and hardware", "A plastic part of the monitor", "A type of pen drive", "A printed book"], ans: 0 },
-      { round: "Unit 3: Operating System & Files", q: "Which of these is an example of an Operating System?", opts: ["Windows", "MS Paint", "Google Chrome", "Audacity"], ans: 0 },
+      { round: "Unit 3: Operating System & Files", q: "What is an Operating System?", opts: ["A plastic part of the monitor", "Software that helps manage the computer and connect user and hardware", "A type of pen drive", "A printed book"], ans: 1 },
+      { round: "Unit 3: Operating System & Files", q: "Which of these is an example of an Operating System?", opts: ["MS Paint", "Google Chrome", "Windows", "Audacity"], ans: 2 },
       { round: "Unit 3: Operating System & Files", q: "What is a small picture on the screen that stands for a file or program?", opts: ["Icon", "Cable", "Socket", "Key"], ans: 0 },
-      { round: "Unit 3: Operating System & Files", q: "In the file name 'kamal.docx', what is '.docx'?", opts: ["File extension", "Folder name", "User name", "Password"], ans: 0 },
-      { round: "Unit 3: Operating System & Files", q: "What is a folder used for in a computer?", opts: ["To keep files neat and organized", "To play music only", "To cool the CPU", "To print pages"], ans: 0 },
-      { round: "Unit 3: Operating System & Files", q: "What happens when you click the Minimize button (—) on a window?", opts: ["The window is hidden on the taskbar", "The computer turns off", "The file is deleted forever", "The keyboard locks"], ans: 0 },
+      { round: "Unit 3: Operating System & Files", q: "In the file name 'kamal.docx', what is '.docx'?", opts: ["Folder name", "User name", "Password", "File extension"], ans: 3 },
+      { round: "Unit 3: Operating System & Files", q: "What is a folder used for in a computer?", opts: ["To play music only", "To keep files neat and organized", "To cool the CPU", "To print pages"], ans: 1 },
+      { round: "Unit 3: Operating System & Files", q: "What happens when you click the Minimize button (—) on a window?", opts: ["The computer turns off", "The file is deleted forever", "The window is hidden on the taskbar", "The keyboard locks"], ans: 2 },
       { round: "Unit 3: Operating System & Files", q: "What does the Maximize button (☐) do to a working window?", opts: ["Makes the window fill the whole screen", "Deletes the text", "Opens a new folder", "Mutes the sound"], ans: 0 },
-      { round: "Unit 3: Operating System & Files", q: "Can two files have the exact same name in the same folder?", opts: ["No, each file needs a unique name", "Yes, always", "Only on Mondays", "Only if they are empty"], ans: 0 },
+      { round: "Unit 3: Operating System & Files", q: "Can two files have the exact same name in the same folder?", opts: ["Yes, always", "Only on Mondays", "Only if they are empty", "No, each file needs a unique name"], ans: 3 },
 
       // --- UNIT 4: USING MOUSE AND KEYBOARD FOR APPLICATION SOFTWARE (9 Qs) ---
-      { round: "Unit 4: Mouse, Keyboard & Software", q: "Which software is used to type letters and documents?", opts: ["Word processing software", "Audio editing software", "Antivirus software", "Map app"], ans: 0 },
-      { round: "Unit 4: Mouse, Keyboard & Software", q: "Which software is used to draw pictures on a computer?", opts: ["Graphic / drawing software", "Calculator app", "Clock app", "Browser"], ans: 0 },
+      { round: "Unit 4: Mouse, Keyboard & Software", q: "Which software is used to type letters and documents?", opts: ["Audio editing software", "Word processing software", "Antivirus software", "Map app"], ans: 1 },
+      { round: "Unit 4: Mouse, Keyboard & Software", q: "Which software is used to draw pictures on a computer?", opts: ["Calculator app", "Clock app", "Graphic / drawing software", "Browser"], ans: 2 },
       { round: "Unit 4: Mouse, Keyboard & Software", q: "What is the arrow on the computer screen called?", opts: ["Mouse pointer or cursor", "Scroll wheel", "Taskbar", "Folder"], ans: 0 },
-      { round: "Unit 4: Mouse, Keyboard & Software", q: "How do you usually open a file or program icon using the mouse?", opts: ["Double-click the left button", "Shake the monitor", "Press the scroll wheel ten times", "Pull the cable"], ans: 0 },
-      { round: "Unit 4: Mouse, Keyboard & Software", q: "Which part of the mouse helps move a page up and down?", opts: ["Scroll wheel", "Left button", "Right button", "Wire"], ans: 0 },
-      { round: "Unit 4: Mouse, Keyboard & Software", q: "What is the common letter layout on a computer keyboard called?", opts: ["QWERTY", "ABCD", "1234", "XYZ"], ans: 0 },
+      { round: "Unit 4: Mouse, Keyboard & Software", q: "How do you usually open a file or program icon using the mouse?", opts: ["Shake the monitor", "Press the scroll wheel ten times", "Pull the cable", "Double-click the left button"], ans: 3 },
+      { round: "Unit 4: Mouse, Keyboard & Software", q: "Which part of the mouse helps move a page up and down?", opts: ["Left button", "Scroll wheel", "Right button", "Wire"], ans: 1 },
+      { round: "Unit 4: Mouse, Keyboard & Software", q: "What is the common letter layout on a computer keyboard called?", opts: ["ABCD", "1234", "QWERTY", "XYZ"], ans: 2 },
       { round: "Unit 4: Mouse, Keyboard & Software", q: "Which key is used to leave a space between words?", opts: ["Space bar", "Enter key", "Caps Lock", "Esc key"], ans: 0 },
-      { round: "Unit 4: Mouse, Keyboard & Software", q: "Which key deletes one character or space to the left of the cursor?", opts: ["Backspace key", "Space bar", "Tab key", "Shift key"], ans: 0 },
-      { round: "Unit 4: Mouse, Keyboard & Software", q: "Which of these is an audio editing software mentioned in Grade 6 ICT?", opts: ["Audacity", "MS Word", "Google Chrome", "Windows"], ans: 0 },
+      { round: "Unit 4: Mouse, Keyboard & Software", q: "Which key deletes one character or space to the left of the cursor?", opts: ["Space bar", "Tab key", "Shift key", "Backspace key"], ans: 3 },
+      { round: "Unit 4: Mouse, Keyboard & Software", q: "Which of these is an audio editing software mentioned in Grade 6 ICT?", opts: ["MS Word", "Audacity", "Google Chrome", "Windows"], ans: 1 },
 
       // --- UNIT 5: ALGORITHM AND FLOW CHARTS (7 Qs) ---
-      { round: "Unit 5: Algorithms & Flow Charts", q: "What is an algorithm?", opts: ["Step-by-step instructions in order to solve a problem", "A computer screen", "A type of mouse", "A web address"], ans: 0 },
+      { round: "Unit 5: Algorithms & Flow Charts", q: "What is an algorithm?", opts: ["A computer screen", "A type of mouse", "Step-by-step instructions in order to solve a problem", "A web address"], ans: 2 },
       { round: "Unit 5: Algorithms & Flow Charts", q: "Every standard algorithm must begin with 'Start' and finish with:", opts: ["End", "Copy", "Print", "Delete"], ans: 0 },
-      { round: "Unit 5: Algorithms & Flow Charts", q: "Why must the steps of an algorithm be in the right order?", opts: ["Wrong order can give the wrong result", "To make the screen bright", "To save electricity", "To open a browser"], ans: 0 },
-      { round: "Unit 5: Algorithms & Flow Charts", q: "What is a flow chart?", opts: ["A picture/diagram of algorithm steps using symbols", "A list of songs", "A computer virus", "A password"], ans: 0 },
-      { round: "Unit 5: Algorithms & Flow Charts", q: "In a flow chart, which shape shows Start and End?", opts: ["Oval", "Diamond", "Arrow", "Triangle"], ans: 0 },
+      { round: "Unit 5: Algorithms & Flow Charts", q: "Why must the steps of an algorithm be in the right order?", opts: ["To make the screen bright", "To save electricity", "To open a browser", "Wrong order can give the wrong result"], ans: 3 },
+      { round: "Unit 5: Algorithms & Flow Charts", q: "What is a flow chart?", opts: ["A list of songs", "A picture/diagram of algorithm steps using symbols", "A computer virus", "A password"], ans: 1 },
+      { round: "Unit 5: Algorithms & Flow Charts", q: "In a flow chart, which shape shows Start and End?", opts: ["Diamond", "Arrow", "Oval", "Triangle"], ans: 2 },
       { round: "Unit 5: Algorithms & Flow Charts", q: "In a flow chart, which shape shows Input and Output?", opts: ["Parallelogram", "Oval", "Star", "Circle"], ans: 0 },
-      { round: "Unit 5: Algorithms & Flow Charts", q: "In a flow chart, which shape shows a Process or action?", opts: ["Rectangle", "Diamond", "Oval", "Arrow"], ans: 0 },
+      { round: "Unit 5: Algorithms & Flow Charts", q: "In a flow chart, which shape shows a Process or action?", opts: ["Diamond", "Oval", "Arrow", "Rectangle"], ans: 3 },
 
       // --- UNIT 6: USING THE INTERNET (8 Qs) ---
-      { round: "Unit 6: Using the Internet", q: "What is the Internet?", opts: ["A large network of connected computers around the world", "A single computer mouse", "A drawing program", "A printer paper"], ans: 0 },
-      { round: "Unit 6: Using the Internet", q: "Which program is used to open and view web pages?", opts: ["Web browser", "Calculator", "Paint", "Clock"], ans: 0 },
+      { round: "Unit 6: Using the Internet", q: "What is the Internet?", opts: ["A single computer mouse", "A large network of connected computers around the world", "A drawing program", "A printer paper"], ans: 1 },
+      { round: "Unit 6: Using the Internet", q: "Which program is used to open and view web pages?", opts: ["Calculator", "Paint", "Web browser", "Clock"], ans: 2 },
       { round: "Unit 6: Using the Internet", q: "Which of these is a web browser?", opts: ["Google Chrome", "Audacity", "MS Paint", "Notepad"], ans: 0 },
-      { round: "Unit 6: Using the Internet", q: "Where do you type a website address in a web browser?", opts: ["Address bar", "Scroll wheel", "Keyboard", "Speaker"], ans: 0 },
-      { round: "Unit 6: Using the Internet", q: "Which of these is a search engine?", opts: ["Google", "Mozilla Firefox", "Windows", "Pen drive"], ans: 0 },
-      { round: "Unit 6: Using the Internet", q: "Which browser button reloads or updates the current web page?", opts: ["Refresh", "Home", "Print", "Save"], ans: 0 },
+      { round: "Unit 6: Using the Internet", q: "Where do you type a website address in a web browser?", opts: ["Scroll wheel", "Keyboard", "Speaker", "Address bar"], ans: 3 },
+      { round: "Unit 6: Using the Internet", q: "Which of these is a search engine?", opts: ["Mozilla Firefox", "Google", "Windows", "Pen drive"], ans: 1 },
+      { round: "Unit 6: Using the Internet", q: "Which browser button reloads or updates the current web page?", opts: ["Home", "Print", "Refresh", "Save"], ans: 2 },
       { round: "Unit 6: Using the Internet", q: "What is best to type in a search engine to find information easily?", opts: ["Short keywords", "Long stories", "Your password", "Random letters"], ans: 0 },
-      { round: "Unit 6: Using the Internet", q: "What should you do when using the Internet at school or home?", opts: ["Follow safety rules and ask teachers or parents for help", "Click unknown links in strange emails", "Share personal details with strangers", "Keep passwords on screen"], ans: 0 }
+      { round: "Unit 6: Using the Internet", q: "What should you do when using the Internet at school or home?", opts: ["Click unknown links in strange emails", "Share personal details with strangers", "Keep passwords on screen", "Follow safety rules and ask teachers or parents for help"], ans: 3 }
     ];
+
+    // Shuffle each question's options cleanly while preserving the exact right answer index
+    const questions = rawQuestions.map(item => {
+      const correctText = item.opts[item.ans];
+      const shuffledOpts = [...item.opts];
+      for (let i = shuffledOpts.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledOpts[i], shuffledOpts[j]] = [shuffledOpts[j], shuffledOpts[i]];
+      }
+      return {
+        round: item.round,
+        q: item.q,
+        opts: shuffledOpts,
+        ans: shuffledOpts.indexOf(correctText)
+      };
+    });
 
     let currentQIndex = 0;
     let scores = [0, 0, 0, 0];
